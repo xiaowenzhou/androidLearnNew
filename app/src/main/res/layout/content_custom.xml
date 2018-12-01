@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".service.custom"
+    tools:showIn="@layout/activity_custom">
+
+    <Button
+        android:id="@+id/btn_custom_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Service"/>
+
+    <Button
+        android:id="@+id/btn_custom_unbindService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unBind Service"
+        app:layout_constraintLeft_toRightOf="@+id/btn_custom_start"/>
+
+    <cn.ktc.learnandroid.view.MyView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="#ff0000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_custom_startRemoteService" />
+
+    <Button
+        android:id="@+id/btn_custom_startRemoteService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remote Service"
+        app:layout_constraintTop_toBottomOf="@+id/btn_custom_start"/>
+
+</android.support.constraint.ConstraintLayout>
