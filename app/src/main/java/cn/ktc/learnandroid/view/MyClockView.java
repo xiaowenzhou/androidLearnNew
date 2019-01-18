@@ -187,6 +187,15 @@ public class MyClockView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        Log.d("zhouxw","clock onDraw");
+        mCanvas =canvas;
+        getCurrentTime();
+        drawOutSideArc();
+        drawScaleLine();
+        drawSecondNeedle();
+        drawMinuteNeedle();
+        drawHourNeedle();
+        invalidate();
 
     }
 
@@ -210,14 +219,14 @@ public class MyClockView extends View {
      * 画外圈的时间12、3、6、9文本和4段弧线
      */
     private void drawOutSideArc() {
-        String timeList[] =new String[]{"12","3","6","9"};
+        String[] timeList =new String[]{"12","3","6","9"};
         mTextPaint.getTextBounds(timeList[1],0,timeList[1].length(),mTextRect);
         mCircleRectF.set(mPaddingLeft+mTextRect.width()/2+mCircleStrokeWidth/2,
                 mPaddingTop+mTextRect.height()/2+mCircleStrokeWidth/2,
                 getWidth()-mPaddingRight-mTextRect.width()/2-mCircleStrokeWidth/2,
                 getHeight()-mPaddingBottom-mTextRect.height()/2-mCircleStrokeWidth/2);
         mCanvas.drawText(timeList[0],getWidth()/2,mCircleRectF.top+mTextRect.height()/2,mTextPaint);
-        mCanvas.drawText(timeList[1],mCircleRectF.right,getHeight()/2+mTextRect/2,mTextPaint);
+        mCanvas.drawText(timeList[1],mCircleRectF.right,getHeight()/2+mTextRect.height()/2,mTextPaint);
         mCanvas.drawText(timeList[2],getWidth()/2,mCircleRectF.bottom+mTextRect.height()/2,mTextPaint);
         mCanvas.drawText(timeList[3],mCircleRectF.left,getHeight()/2+mTextRect.height()/2,mTextPaint);
         //画连接数字的4段弧线
@@ -308,6 +317,13 @@ public class MyClockView extends View {
         mHourHandPath.close();
         mHourPaint.setStyle(Paint.Style.FILL);
         mCanvas.drawPath(mHourHandPath,mHourPaint);
+
+        mCircleRectF.set(getWidth()/2-0.03f*mRadius,getHeight()/2-0.03f*mRadius,
+                getWidth()/2+0.03f*mRadius,getHeight()/2+0.03f*mRadius);
+        mHourPaint.setStyle(Paint.Style.STROKE);
+        mHourPaint.setStrokeWidth(0.01f*mRadius);
+        mCanvas.drawArc(mCircleRectF,0,360,false,mHourPaint);
+        mCanvas.restore();
 
 
 

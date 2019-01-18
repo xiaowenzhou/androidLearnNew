@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(serviceIntent);
             }
             break;
+            case R.id.btn_click:{
+
+            }
             default:
         }
     }

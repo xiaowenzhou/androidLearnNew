@@ -38,7 +38,7 @@ public class PictureLoader {
     private static final long KEEP_ALIVE = 10L;
 
     //get KEY_URI from imageView;
-    private static final int TAG_KEY_URI=R.id.pictureload_uri;
+    private static final int TAG_KEY_URI=R.id.btn_custom_unbindService;
     private static final long DISK_CACHE_SIZE =1024*1024*50;
     private static final long IO_BUFFER_SIZE =1024*8;
     private static final long DISK_CACHE_INDEX =0;
@@ -95,6 +95,7 @@ public class PictureLoader {
     private PictureResizer mPictureResizer =new PictureResizer();
     private LruCache<String,Bitmap> memoryCache;
     private DiskLruCache mDiskLruCache;
+
 
 
 
