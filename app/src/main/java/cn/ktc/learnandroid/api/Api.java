@@ -1,10 +1,10 @@
 package cn.ktc.learnandroid.api;
 
 
-import android.database.Observable;
 
 import cn.ktc.learnandroid.bean.ArticleBean;
 import cn.ktc.learnandroid.bean.BannerBean;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 

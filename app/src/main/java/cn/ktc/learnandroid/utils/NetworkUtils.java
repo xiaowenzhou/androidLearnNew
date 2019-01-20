@@ -1,12 +1,15 @@
 package cn.ktc.learnandroid.utils;
 
 
+
 import java.util.concurrent.TimeUnit;
 
 import cn.ktc.learnandroid.MyApplication;
+import cn.ktc.learnandroid.api.Api;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -15,6 +18,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NetworkUtils {
     private static  NetworkUtils mInstance;
     private static final String BASEURI = "http://www.wanandroid.com";
+
+    public Api getApi() {
+        return mApi;
+    }
+
+    private Api mApi;
     private NetworkUtils(){
         final long maxCache=10*10*1024;
         Cache cache = new Cache(MyApplication.mContext.getCacheDir(),maxCache);
@@ -27,10 +36,13 @@ public class NetworkUtils {
                 .baseUrl(BASEURI)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(builder.build())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
+        mApi = retrofit.create(Api.class);
 
 
     }
+
 
     public  static NetworkUtils getmInstance(){
         if (mInstance==null){

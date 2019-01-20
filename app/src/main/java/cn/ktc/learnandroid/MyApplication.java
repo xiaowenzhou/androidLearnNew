@@ -1,5 +1,6 @@
 package cn.ktc.learnandroid;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
@@ -7,6 +8,7 @@ import android.content.Context;
  * @author zhouxw
  */
 public class MyApplication extends Application {
+    @SuppressLint("StaticFieldLeak")
     public  static Context mContext;
 
     @Override

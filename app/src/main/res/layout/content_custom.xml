@@ -21,7 +21,7 @@
         android:text="unBind Service"
         app:layout_constraintLeft_toRightOf="@+id/btn_custom_start"/>
 
-    <cn.ktc.learnandroid.view.MyView
+    <cn.ktc.learnandroid.view.custom.MyView
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_marginStart="10dp"

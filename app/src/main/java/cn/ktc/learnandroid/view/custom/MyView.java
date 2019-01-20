@@ -1,4 +1,4 @@
-package cn.ktc.learnandroid.view;
+package cn.ktc.learnandroid.view.custom;
 
 import android.content.Context;
 import android.graphics.Canvas;
