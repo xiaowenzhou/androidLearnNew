@@ -3,7 +3,6 @@ package cn.ktc.learnandroid.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import cn.ktc.learnandroid.presenter.IPresenter;
 import cn.ktc.learnandroid.view.IView;

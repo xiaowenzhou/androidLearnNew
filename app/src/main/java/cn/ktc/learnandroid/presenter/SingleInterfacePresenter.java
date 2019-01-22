@@ -4,14 +4,14 @@ import android.util.Log;
 
 import cn.ktc.learnandroid.base.BasePresenter;
 import cn.ktc.learnandroid.bean.ArticleBean;
+import cn.ktc.learnandroid.contract.SingleInterfaceContract;
 import cn.ktc.learnandroid.interfaces.Callback;
 import cn.ktc.learnandroid.model.SingleInterfaceModel;
-import cn.ktc.learnandroid.view.SingleInterfaceIView;
 
 /**
  * @author zhouxw
  */
-public class SingleInterfacePresenter extends BasePresenter<SingleInterfaceIView> implements ISingleInterfacePresenter {
+public class SingleInterfacePresenter extends BasePresenter<SingleInterfaceContract.View> implements SingleInterfaceContract.Presenter<SingleInterfaceContract.View> {
     private  final SingleInterfaceModel mSingleInterfaceModel;
     public SingleInterfacePresenter(){
         this.mSingleInterfaceModel = new SingleInterfaceModel();

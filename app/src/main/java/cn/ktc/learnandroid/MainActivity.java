@@ -1,8 +1,6 @@
 package cn.ktc.learnandroid;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,14 +8,14 @@ import android.widget.TextView;
 
 import cn.ktc.learnandroid.base.BaseActivity;
 import cn.ktc.learnandroid.bean.ArticleBean;
+import cn.ktc.learnandroid.contract.SingleInterfaceContract;
 import cn.ktc.learnandroid.presenter.SingleInterfacePresenter;
 import cn.ktc.learnandroid.service.custom;
-import cn.ktc.learnandroid.view.SingleInterfaceIView;
 
 /**
  * @author zhouxw
  */
-public class MainActivity extends BaseActivity<SingleInterfacePresenter> implements View.OnClickListener,SingleInterfaceIView {
+public class MainActivity extends BaseActivity<SingleInterfacePresenter> implements View.OnClickListener, SingleInterfaceContract.View {
     private Button btnService;
     private Button btnClick;
     private TextView mTextView;
