@@ -14,15 +14,20 @@ import cn.ktc.learnandroid.presenter.SingleInterfacePresenter;
 import cn.ktc.learnandroid.service.custom;
 import cn.ktc.learnandroid.view.SingleInterfaceIView;
 
+/**
+ * @author zhouxw
+ */
 public class MainActivity extends BaseActivity<SingleInterfacePresenter> implements View.OnClickListener,SingleInterfaceIView {
     private Button btnService;
+    private Button btnClick;
     private TextView mTextView;
-    private String TAG ="MainActivity";
-    private SingleInterfacePresenter mSingleInterfacePresenter;
+    private static final String TAG ="MainActivity";
 
 
     private void initView(){
         btnService = findViewById(R.id.btn_Service);
+        btnClick = findViewById(R.id.btn_click);
+        btnClick.setOnClickListener(this);
         btnService.setOnClickListener(this);
         mTextView = findViewById(R.id.tv_content);
 
@@ -37,7 +42,8 @@ public class MainActivity extends BaseActivity<SingleInterfacePresenter> impleme
             }
             break;
             case R.id.btn_click:{
-                mSingleInterfacePresenter.getData(0);
+                Log.d(TAG, "onClick: ");
+                mPresenter.getData(0);
 
             }
             default:
@@ -54,12 +60,12 @@ public class MainActivity extends BaseActivity<SingleInterfacePresenter> impleme
         Log.i(TAG,"onCreate");
         setContentView(R.layout.activity_main);
         initView();
-        mSingleInterfacePresenter = new SingleInterfacePresenter();
 
     }
 
     @Override
     public void showArticleSuccess(ArticleBean bean) {
+        Log.d(TAG, "showArticleSuccess: "+bean.getData().getDatas().get(0).getTitle());
         mTextView.setText(bean.getData().getDatas().get(0).getTitle());
 
     }

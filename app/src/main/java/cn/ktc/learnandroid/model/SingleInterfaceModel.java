@@ -6,8 +6,6 @@ package cn.ktc.learnandroid.model;
 
 
 
-
-import android.icu.text.LocaleDisplayNames;
 import android.util.Log;
 
 import cn.ktc.learnandroid.bean.ArticleBean;
@@ -29,7 +27,7 @@ public class SingleInterfaceModel implements ISingleInterfaceModel {
                 .getApi()
                 .getData(curPage)
                 .subscribeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ArticleBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {

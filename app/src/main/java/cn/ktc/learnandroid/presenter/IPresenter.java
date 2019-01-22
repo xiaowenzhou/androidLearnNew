@@ -2,9 +2,12 @@ package cn.ktc.learnandroid.presenter;
 
 import cn.ktc.learnandroid.view.IView;
 
+/**
+ * @author zhouxw
+ */
 public interface IPresenter<T extends IView> {
     /**
-     * 衣服view
+     * 依附view
      * @param view
      */
     void attachView(T view);

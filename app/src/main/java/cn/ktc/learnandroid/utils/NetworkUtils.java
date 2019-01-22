@@ -2,6 +2,8 @@ package cn.ktc.learnandroid.utils;
 
 
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import java.util.concurrent.TimeUnit;
 
 import cn.ktc.learnandroid.MyApplication;
@@ -9,7 +11,6 @@ import cn.ktc.learnandroid.api.Api;
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -17,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NetworkUtils {
     private static  NetworkUtils mInstance;
-    private static final String BASEURI = "http://www.wanandroid.com";
+    private static final String BASEURI = "http://www.wanandroid.com/";
 
     public Api getApi() {
         return mApi;
@@ -36,7 +37,7 @@ public class NetworkUtils {
                 .baseUrl(BASEURI)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(builder.build())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         mApi = retrofit.create(Api.class);
 

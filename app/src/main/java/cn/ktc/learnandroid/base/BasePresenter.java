@@ -1,5 +1,6 @@
 package cn.ktc.learnandroid.base;
 
+
 import cn.ktc.learnandroid.presenter.IPresenter;
 import cn.ktc.learnandroid.view.IView;
 
@@ -7,7 +8,7 @@ import cn.ktc.learnandroid.view.IView;
  * @author zhouxw
  */
 public abstract class BasePresenter<T extends IView> implements IPresenter<T> {
-    private   T mView;
+    protected   T mView;
 
     @Override
     public void attachView(T view) {
@@ -16,11 +17,11 @@ public abstract class BasePresenter<T extends IView> implements IPresenter<T> {
 
     @Override
     public void detachView() {
-    mView =null;
+        mView =null;
     }
 
     @Override
     public boolean isViewAttached() {
-        return mView !=null;
+        return mView!=null;
     }
 }
