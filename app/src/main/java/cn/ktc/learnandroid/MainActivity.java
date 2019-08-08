@@ -2,9 +2,12 @@ package cn.ktc.learnandroid;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cn.ktc.learnandroid.base.BaseActivity;
 import cn.ktc.learnandroid.bean.ArticleBean;
@@ -28,6 +31,28 @@ public class MainActivity extends BaseActivity<SingleInterfacePresenter> impleme
         btnClick.setOnClickListener(this);
         btnService.setOnClickListener(this);
         mTextView = findViewById(R.id.tv_content);
+
+        GestureDetector.SimpleOnGestureListener listener = new GestureDetector.SimpleOnGestureListener(){
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                Toast.makeText(MainActivity.this,"Shuangji666",Toast.LENGTH_SHORT).show();
+                return super.onDoubleTap(e);
+            }
+
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e) {
+                Toast.makeText(MainActivity.this,"danji555",Toast.LENGTH_SHORT).show();
+                return super.onSingleTapConfirmed(e);
+            }
+        };
+
+        final GestureDetector gestureDetector = new GestureDetector(this,listener);
+        btnClick.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        });
 
     }
 
